@@ -29,15 +29,13 @@ clientes = pd.read_excel('./clientes.xlsx')
 for row in clientes.values:
     msg = MIMEMultipart()
     msg['Subject'] = 'Projeto Integrador 5 termo BigData:)'    
-    msg['From'] = 'seu email'
+    msg['From'] = 'projetosfatec23@outlook.com'
     msg['To'] = row[1]
-    message = f"Olá meu amigo {row[0]}, segue as informaçoes da Tabela do Brasileirão serie A:\n\n {dataframe.to_string(index=False)}"
+    message = f"OLá meu amigo {row[0]}, segue as informaçoes da Tabela do Brasileirão serie A:\n\n {dataframe.to_string(index=False)}"
     msg.attach(MIMEText(message, 'plain'))
 
     server = smtplib.SMTP('smtp.office365.com', 587)
     server.starttls()
-    server.login('seu email', 'sua senha')
+    server.login('projetosfatec23@outlook.com', 'batatafrita123')
     server.sendmail(msg['From'], msg['To'], msg.as_string())
     server.quit()
-
-
